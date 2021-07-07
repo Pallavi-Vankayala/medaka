@@ -188,7 +188,7 @@ run_medaka_variant () {
     exit_if_file_does_not_exist "${PROBS}" "${REF}"
     if [[ ! -e "${VCF}" ]]; then
         echo "- Running medaka variant"
-        medaka variant "${REF}" "${PROBS}" "${VCF}" ${REG_OPT} ${EXTRAOPTS} \
+        medaka variant "${REF}" "${PROBS}" "${VCF}" ${REG_OPT} ${EXTRAOPTS} --gvcf\
             || { echo "* Failed to call variants from consensus probabilities."; exit 1; }
         echo "  VCF written to ${OUTPUT}/${VCF}."
     else
